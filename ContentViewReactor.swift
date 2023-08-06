@@ -13,7 +13,7 @@ class ContentViewReactor: Reactor {
         self.state = state
     }
     
-    private(set) var state: State
+    private(set) weak var state: State?
     
     enum Action {
         case didTapButton
@@ -26,7 +26,7 @@ class ContentViewReactor: Reactor {
     func react(_ action: Action) {
         switch action {
         case .didTapButton:
-            state.count += 1
+            state?.count += 1
         }
     }
 }
@@ -36,7 +36,7 @@ protocol Reactor: AnyObject {
     associatedtype Action
     associatedtype State: AnyObject
     
-    var state: State { get }
+    var state: State? { get }
     
     func react(_ action: Action)
 }
