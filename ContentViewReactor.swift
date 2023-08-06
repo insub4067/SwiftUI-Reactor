@@ -9,7 +9,7 @@ import Foundation
 
 class ContentViewReactor: Reactor {
     
-    init(state: ContentViewReactor.State) {
+    init(state: State) {
         self.state = state
     }
     
